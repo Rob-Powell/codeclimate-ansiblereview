@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find /code -type f | xargs /usr/src/app/ansible-review/bin/ansible-review -t
