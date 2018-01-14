@@ -3,7 +3,7 @@ engines:
   ansiblereview:
     enabled: true
     config:
-      git_rules_repo: https://github.com/Rob-Powell/ansible-review/archive/master.zip
+      rules_zip: https://github.com/Rob-Powell/ansible-review/archive/master.zip
       work_dir: /var/tmp/ansiblereview-rules
       standards_dir: lib/ansiblereview/examples
       lint_dir: lib/ansiblereview/examples/lint-rules

@@ -9,7 +9,7 @@ except:
     pass
 else:
     try:
-        standardsrepozip = doc['engines']['ansiblereview']['config']['git_rules']
+        standardsrepozip = doc['engines']['ansiblereview']['config']['rules_zip']
     except:
         pass
     try:
@@ -27,11 +27,11 @@ else:
     try:
         searchmethod = doc['engines']['ansiblereview']['config']['search_method']
     except:
-        pass
+        searchcommand = "git ls-files"
     else:
-        if searchmethod == "find"
+        if searchmethod == "find":
             searchcommand = "find . -type f"
-        else
+        else:
             searchcommand = "git ls-files"
     try:
         debug = doc['engines']['ansiblereview']['config']['debug']
@@ -39,6 +39,7 @@ else:
         debug = ""
     else:
         debug = " -vv"
+
 
 cmd = searchcommand + " | xargs /usr/src/app/ansible-review/bin/ansible-review -t -w " + workdir + " -g " + standardsrepozip + " -d " + standards + " -r " + lint + debug
 ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
