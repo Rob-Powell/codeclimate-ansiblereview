@@ -18,4 +18,4 @@ USER app
 
 WORKDIR /code
 
-CMD ["/usr/src/app/codeclimate-ansiblereview.py"]
+CMD ["python", "/usr/src/app/codeclimate-ansiblereview.py"]
