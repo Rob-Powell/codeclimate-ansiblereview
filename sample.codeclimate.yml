@@ -8,3 +8,4 @@ engines:
       standards_dir: lib/ansiblereview/examples
       lint_dir: lib/ansiblereview/examples/lint-rules
       search_method: git
+      debug: true

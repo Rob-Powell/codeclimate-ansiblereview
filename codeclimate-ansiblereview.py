@@ -33,8 +33,14 @@ else:
             searchcommand = "find . -type f"
         else
             searchcommand = "git ls-files"
+    try:
+        debug = doc['engines']['ansiblereview']['config']['debug']
+    except:
+        debug = ""
+    else:
+        debug = " -vv"
 
-cmd = searchcommand + " | xargs /usr/src/app/ansible-review/bin/ansible-review -t -w " + workdir + " -g " + standardsrepozip + " -d " + standards + " -r " + lint + "-vv"
+cmd = searchcommand + " | xargs /usr/src/app/ansible-review/bin/ansible-review -t -w " + workdir + " -g " + standardsrepozip + " -d " + standards + " -r " + lint + debug
 ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
 output = ps.communicate()[0]
 print output
