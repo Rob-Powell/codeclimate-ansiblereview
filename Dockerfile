@@ -9,7 +9,7 @@ RUN apk add --no-cache python2 python2-dev py-pip libffi gcc libffi-dev musl-dev
 COPY requirements.txt /usr/src/app
 RUN pip install -r requirements.txt
 
-COPY codeclimate-ansiblereview /usr/src/app
+COPY codeclimate-ansiblereview.py /usr/src/app
 RUN chown -R app:app /usr/src/app
 
 RUN git clone https://github.com/Rob-Powell/ansible-review.git
@@ -18,4 +18,4 @@ USER app
 
 WORKDIR /code
 
-CMD ["/usr/src/app/ansible-review/codeclimate-ansiblereview"]
+CMD ["/usr/src/app/codeclimate-ansiblereview.py"]
